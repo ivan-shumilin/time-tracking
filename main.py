@@ -8,7 +8,7 @@ import uvicorn
 from schemas import Answer
 
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
 from geopy.distance import distance
 from geopy.point import Point
