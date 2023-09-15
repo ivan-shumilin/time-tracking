@@ -71,19 +71,19 @@ async def read_root(request: Request):
     # проверка, есть ли геоданные
     if obj.message.location != None:
         print('------', obj.message.reply_to_message)
-        if obj.message.reply_to_message:
-            target_point = get_point(obj.message.location.latitude, obj.message.location.longitude)
-            dist_alkon = int(distance(
-                target_point,
-                get_point(LOCATIONS[0]['location']['latitude'], LOCATIONS[0]['location']['longitude'])
-            ).m)
-            dist_sk = int(distance(
-                target_point,
-                get_point(LOCATIONS[1]['location']['latitude'], LOCATIONS[1]['location']['longitude'])
-            ).m)
-            answer = f'Расстояние до Алкона - {dist_alkon} м\nРасстояние до Hadassah - {dist_sk} м\n'
-        else:
-            answer = 'Вахаха, меня так просто не хакнуть 😈'
+
+        target_point = get_point(obj.message.location.latitude, obj.message.location.longitude)
+        dist_alkon = int(distance(
+            target_point,
+            get_point(LOCATIONS[0]['location']['latitude'], LOCATIONS[0]['location']['longitude'])
+        ).m)
+        dist_sk = int(distance(
+            target_point,
+            get_point(LOCATIONS[1]['location']['latitude'], LOCATIONS[1]['location']['longitude'])
+        ).m)
+        answer = f'Расстояние до Алкона - {dist_alkon} м\nРасстояние до Hadassah - {dist_sk} м\n'
+        # else:
+        #     answer = 'Вахаха, меня так просто не хакнуть 😈'
 
     else:
         answer = 'Для отправки геоданных нажмите "Отправить локацию"'
