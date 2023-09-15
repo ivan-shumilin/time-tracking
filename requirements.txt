@@ -2,4 +2,4 @@ fastapi
 aiohttp
 uvicorn
 geopy
-dotenv
+
